@@ -60,10 +60,12 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
             val second = (time % 6000) / 100
             val minute = time / 6000
 
-            runOnUiThread {
-                binding.tvMillisecond.text = if(milli_second < 10 ) ".0${milli_second}" else ".${milli_second}"
-                binding.tvSecond.text = if(second < 10) ".0${second}" else ":${second}"
-                binding.tvMinute.text = "${minute}"
+            if(isRunning) {
+                runOnUiThread {
+                    binding.tvMillisecond.text = if(milli_second < 10 ) ".0${milli_second}" else ".${milli_second}"
+                    binding.tvSecond.text = if(second < 10) ".0${second}" else ":${second}"
+                    binding.tvMinute.text = "${minute}"
+                }
             }
         }
     }
@@ -76,6 +78,15 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
     }
 
     private fun refressh(){
-        
+        timer?.cancel()
+
+        binding.btnStart.text = getString(R.string.btn_start)
+        binding.btnStart.setBackgroundColor(getColor(R.color.btn_start))
+        isRunning = false
+
+        time = 0
+        binding.tvMillisecond.text = ".00"
+        binding.tvSecond.text = ":00"
+        binding.tvMinute.text = "00"
     }
 }
