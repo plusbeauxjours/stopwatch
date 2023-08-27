@@ -19,7 +19,7 @@
             app:layout_constraintBaseline_toBaselineOf="@+id/tv_second"
             app:layout_constraintEnd_toStartOf="@id/tv_second"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -51,23 +51,23 @@
             android:id="@+id/button"
             android:layout_width="80dp"
             android:layout_height="60dp"
-            android:text="시작"
-            android:backgroundTint="#6733F8"
             android:layout_marginBottom="100dp"
+            android:backgroundTint="@color/primary"
+            android:text="@string/start"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-        
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <Button
             android:id="@+id/button2"
             android:layout_width="80dp"
             android:layout_height="60dp"
-            android:text="초기화"
-            android:backgroundTint="#FAEF89"
             android:layout_marginBottom="50dp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:backgroundTint="@color/secondary"
+            android:text="@string/initialize"
+            app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/button" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
