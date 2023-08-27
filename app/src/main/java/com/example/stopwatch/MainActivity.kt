@@ -49,8 +49,7 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
         }
     }
     private fun start(){
-        binding.btnStart.text = getString(R.string.btn_pause)
-        binding.btnStart.setBackgroundColor(getColor(R.color.btn_pause))
+        binding.btnStart.text = getString(R.string.btn_pause_eng)
         isRunning = true
 
         timer = timer(period = 10){
@@ -71,8 +70,7 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
     }
 
     private fun pause(){
-        binding.btnStart.text = getString(R.string.btn_start)
-        binding.btnStart.setBackgroundColor(getColor(R.color.btn_start))
+        binding.btnStart.text = getString(R.string.btn_start_eng)
         isRunning = false
         timer?.cancel()
     }
@@ -80,8 +78,7 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
     private fun refressh(){
         timer?.cancel()
 
-        binding.btnStart.text = getString(R.string.btn_start)
-        binding.btnStart.setBackgroundColor(getColor(R.color.btn_start))
+        binding.btnStart.text = getString(R.string.btn_start_eng)
         isRunning = false
 
         time = 0
