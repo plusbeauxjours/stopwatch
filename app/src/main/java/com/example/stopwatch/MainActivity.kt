@@ -56,18 +56,23 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
         timer = timer(period = 10){
             time++
 
-            val milli_second = time%100
+            val milli_second = time % 100
             val second = (time % 6000) / 100
-            val minute = time % 6000
+            val minute = time / 6000
 
-            binding.tvMillisecond.text = if(milli_second < 10 ) ".0${milli_second}" else ".${milli_second}"
-            binding.tvSecond.text = if(second < 10) ".0${second}" else ":${second}"
-            binding.tvMinute.text = "${minute}"
+            runOnUiThread {
+                binding.tvMillisecond.text = if(milli_second < 10 ) ".0${milli_second}" else ".${milli_second}"
+                binding.tvSecond.text = if(second < 10) ".0${second}" else ":${second}"
+                binding.tvMinute.text = "${minute}"
+            }
         }
     }
 
     private fun pause(){
-
+        binding.btnStart.text = getString(R.string.btn_start)
+        binding.btnStart.setBackgroundColor(getColor(R.color.btn_start))
+        isRunning = false
+        timer?.cancel()
     }
 
     private fun refressh(){
